@@ -3,10 +3,10 @@
 import os
 import glob
 import sqlite3
-JSTOR_01_PhilTrans_path = '/home/thej/Documents/code/JSTOR_01_PhilTrans'
+JSTOR_01_PhilTrans_path = '/home/thej/Documents/present/JSTOR_01_PhilTrans'
 path_to_meta_docs = JSTOR_01_PhilTrans_path+'/PRE_1923_METADATA/'
 metadata_folders = ['00','01','02','03','04','05','06','07','08', '09','10','11']
-conn = sqlite3.connect("/home/thej/Documents/code/jstor_philtrans_browser/metadata.sqlite")
+conn = sqlite3.connect("/media/truecrypt5/code/jstor_philtrans_browser/metadata.sqlite")
 
 for meta_folder in metadata_folders:
 	folder_path = glob.glob(path_to_meta_docs+meta_folder+"/*.txt")
@@ -63,7 +63,8 @@ for meta_folder in metadata_folders:
 		inputs.append(M3)
 		inputs.append(AU)
 		inputs.append(ER)
+		inputs.append(meta_folder)
 		print inputs
-		conn.execute('INSERT INTO documents(ID, TY ,T1  ,JF  ,VL  ,SP  ,EP  , PY  ,UR  ,M3  ,AU  ,ER ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)', inputs)
+		conn.execute('INSERT INTO documents(ID, TY ,T1  ,JF  ,VL  ,SP  ,EP  , PY  ,UR  ,M3  ,AU  ,ER,FOLDER ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)', inputs)
 		conn.commit()
 conn.close()
