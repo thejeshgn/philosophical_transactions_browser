@@ -29,3 +29,9 @@ Tasks
 License
 ========
 GNU GPL V3
+
+
+In Memory of Aaron Swartz 
+=================
+
+Thejesh GN
