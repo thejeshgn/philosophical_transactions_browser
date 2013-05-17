@@ -1,0 +1,1 @@
+JSTOR_01_PhilTrans_path = '/home/thej/Documents/code/JSTOR_01_PhilTrans'
